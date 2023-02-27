@@ -57,7 +57,12 @@ sudo a2ensite ${nombreUser}.conf
 sudo systemctl restart apache2
 
 ```
+#### ![Image](https://github.com/JesusFernandez1/DespligueScripts/blob/main/Despliegue/Captura%20de%20pantalla%20(184).png)
 
+### Aqui comprobamos la primera parte del script funciona poniendo jesus.local."nombre-introducido"
+#### ![Image](https://github.com/JesusFernandez1/DespligueScripts/blob/main/Despliegue/Captura%20de%20pantalla%20(182).png)
+### Y aqui la segunda parte donde crea el host
+#### ![Image](https://github.com/JesusFernandez1/DespligueScripts/blob/main/Despliegue/Captura%20de%20pantalla%20(183).png)
 #### [Script](https://github.com/JesusFernandez1/DespligueScripts/blob/main/Despliegue/scripts/script1)
 
 ### Script 2 - Se Creacion de un subdominio en el servidor DNS con las resolución directa e inversa
