@@ -135,7 +135,7 @@ service bind9 restart
 
 echo "subdominio created successfully"
 ```
-
+#### ![Image](https://github.com/JesusFernandez1/DespligueScripts/blob/main/Despliegue/Captura%20de%20pantalla%20(185).png)
 #### [Script](https://github.com/JesusFernandez1/DespligueScripts/blob/main/Despliegue/scripts/script2)
 
 ### Script 3 - Se creará una base de datos además de un usuario con todos los permisos sobre dicha base de datos (ALL PRIVILEGES)
@@ -166,6 +166,9 @@ mysql -e "FLUSH PRIVILEGES;"
 echo "La base de datos $nombreDB ha sido creada y el usuario $nombreUser ha sido asignado con acceso completo."
 
 ```
+
+#### ![Image](https://github.com/JesusFernandez1/DespligueScripts/blob/main/Despliegue/Captura%20de%20pantalla%20(186).png)
+#### ![Image](https://github.com/JesusFernandez1/DespligueScripts/blob/main/Despliegue/Captura%20de%20pantalla%20(187).png)
 
 #### [Script](https://github.com/JesusFernandez1/DespligueScripts/blob/main/Despliegue/scripts/script3)
 
