@@ -2,6 +2,8 @@
 ## Proyecto
 ### Script 1 - Creación de usuarios y del directorio correspondiente para el alojamiento web + Host virtual en apache
 
+#### Nota: En este script se hacen los dos primeros, tanto la creacion de un usuario y su directorio junto a su host virtual
+
 ```sh
 
 #!/bin/bash
