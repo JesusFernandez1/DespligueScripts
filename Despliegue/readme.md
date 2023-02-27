@@ -85,6 +85,12 @@ nombreSubdominio=$(echo $subdominio | cut -d"." -f1)
 # Obtiene la dirección IP de la máquina local
 LOCAL_IP=$(hostname -I | awk '{print $1}')
 
+# Crea el directorio de zonas si no existe
+if [ ! -d "/etc/bind/zones" ]; then
+    sudo mkdir -p /etc/bind/zones
+    sudo chown bind:bind /etc/bind/zones
+fi
+
 # Crea el registro de zona directa
 echo "Creating forward lookup zone for $subdominio"
 echo "
