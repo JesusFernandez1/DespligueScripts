@@ -9,5 +9,5 @@
 ### Script 3 - Se creará una base de datos además de un usuario con todos los permisos sobre dicha base de datos (ALL PRIVILEGES)
 #### [Script](https://github.com/Braeek/ProyectoDespliegue/blob/main/Proyecto/InstalarWordpress.md)
 
-### Script 4 - Activar el módulo “wsgi” y crear una pequeña aplicación python
+### Script 4 - Se habilitará la ejecución de aplicaciones Python con el servidor web 
 #### [Script](https://github.com/Braeek/ProyectoDespliegue/blob/main/Proyecto/pythonWsgi.md)
