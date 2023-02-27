@@ -34,13 +34,11 @@ cat <<EOF | sudo tee /etc/apache2/sites-available/${nombreUser}.conf >/dev/null
 <VirtualHost *:80>
     ServerName $server_name
     DocumentRoot $document_root
-
     <Directory $document_root>
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
     </Directory>
-
     ErrorLog ${APACHE_LOG_DIR}/${server_name}-error.log
     CustomLog ${APACHE_LOG_DIR}/${server_name}-access.log combined
 </VirtualHost>
