@@ -188,31 +188,31 @@ nano ~/myproject/myproject/apache/myproject.conf
 ```sh
 
 <VirtualHost *:80>
-    ServerName yourservername.com
-    ServerAlias www.yourservername.com
-    DocumentRoot /home/yourusername/myproject/myproject
+    ServerName jesus.local
+    ServerAlias www.jesus.local
+    DocumentRoot /home/jesus/myproject/myproject
 
-    Alias /static /home/yourusername/myproject/myproject/static
-    <Directory /home/yourusername/myproject/myproject/static>
+    Alias /static /home/jesus/myproject/myproject/static
+    <Directory /home/jesus/myproject/myproject/static>
         Require all granted
     </Directory>
 
-    <Directory /home/yourusername/myproject/myproject/myproject>
+    <Directory /home/jesus/myproject/myproject/myproject>
         <Files wsgi.py>
             Require all granted
         </Files>
     </Directory>
 
-    WSGIDaemonProcess myproject python-path=/home/yourusername/myproject/myproject python-home=/home/yourusername/myproject/myprojectenv
+    WSGIDaemonProcess myproject python-path=/home/jesus/myproject/myproject python-home=/home/jesus/myproject/myprojectenv
     WSGIProcessGroup myproject
-    WSGIScriptAlias / /home/yourusername/myproject/myproject/myproject/wsgi.py
+    WSGIScriptAlias / /home/jesus/myproject/myproject/myproject/wsgi.py
 </VirtualHost>
 
 ```
 ###Guardar el archivo myproject.conf y ciérralo. Habilitar el archivo de configuración creando un enlace simbólico en el directorio sites-enabled de Apache:
 
 ```sh
-sudo ln -s /home/yourusername/myproject/myproject/apache/myproject.conf /etc/apache2/sites-enabled/
+sudo ln -s /home/jesus/myproject/myproject/apache/myproject.conf /etc/apache2/sites-enabled/
 
 ```
 
