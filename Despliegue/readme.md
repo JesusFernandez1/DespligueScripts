@@ -179,9 +179,11 @@ echo "La base de datos $nombreDB ha sido creada y el usuario $nombreUser ha sido
 
 #!/bin/bash
 
-# Instalar los paquetes necesarios
+# Actualizar los paquetes
 sudo apt-get update
-sudo apt-get install python3 python3-pip python3-dev libpq-dev nginx
+
+# Instalar Python 3 y pip
+sudo apt-get install python3 python3-pip python3-dev libmysqlclient-dev
 
 # Crear un entorno virtual
 sudo -H pip3 install virtualenv
@@ -191,7 +193,7 @@ virtualenv myprojectenv
 source myprojectenv/bin/activate
 
 # Instalar dependencias de la aplicación
-pip install django gunicorn psycopg2-binary
+pip install django gunicorn mysqlclient
 
 # Configurar Django
 django-admin.py startproject myproject ~/myproject
@@ -221,26 +223,18 @@ echo "" | sudo tee -a $gunicorn_config
 echo "[Install]" | sudo tee -a $gunicorn_config
 echo "WantedBy=multi-user.target" | sudo tee -a $gunicorn_config
 
-# Configurar Nginx
-nginx_config='/etc/nginx/sites-available/myproject'
-sudo touch $nginx_config
-echo "server {" | sudo tee -a $nginx_config
-echo "    listen 80;" | sudo tee -a $nginx_config
-echo "    server_name server_domain_or_IP;" | sudo tee -a $nginx_config
-echo "" | sudo tee -a $nginx_config
-echo "    location / {" | sudo tee -a $nginx_config
-echo "        include proxy_params;" | sudo tee -a $nginx_config
-echo "        proxy_pass http://unix:/home/$USER/myproject/myproject.sock;" | sudo tee -a $nginx_config
-echo "    }" | sudo tee -a $nginx_config
-echo "}" | sudo tee -a $nginx_config
-
-sudo ln -s /etc/nginx/sites-available/myproject /etc/nginx/sites-enabled
+# Configurar Apache
+sudo a2enmod rewrite
+sudo chown -R www-data:www-data ~/myproject/myproject
+sudo chmod -R 775 ~/myproject/myproject
+sudo cp ~/myproject/myproject/myproject/apache/myproject.conf /etc/apache2/sites-available/
+sudo a2ensite myproject.conf
+sudo systemctl restart apache2
 
 # Reiniciar los servicios
 sudo systemctl daemon-reload
 sudo systemctl start gunicorn
 sudo systemctl enable gunicorn
-sudo systemctl restart nginx
 
 ```
 #### [Script](https://github.com/JesusFernandez1/DespligueScripts/blob/main/Despliegue/scripts/script4)
