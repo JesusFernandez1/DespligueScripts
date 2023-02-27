@@ -70,6 +70,7 @@ sudo systemctl restart apache2
 ### Script 2 - Se Creacion de un subdominio en el servidor DNS con las resolución directa e inversa
 
 ```sh
+
 #!/bin/bash
 
 # Pide al usuario el nombre del subdominio
