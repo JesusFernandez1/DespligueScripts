@@ -1,0 +1,17 @@
+#Cogemos el archivo de configuracion de los puertos que deseamos
+archivoPuerto="etc/apache2/ports.conf"
+
+echo "Introduce el puerto que quieras añadir: "
+#read del puerto a añadir
+read puerto
+#introducimos en el archivo de configuracion
+cadenaPuerto="Listen $puerto"
+#Buscar si ya existe
+if grep -Fxq "$cadenaPuerto" "$archivoPuerto"
+
+then #Si existe
+        echo "Puerto existe"
+else #No existe
+        echo "$cadenaPuerto" >> "$archivoPuerto"
+        echo "Se añadio el puerto $puerto."
+fi

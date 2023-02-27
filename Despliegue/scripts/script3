@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Solicita al usuario la información necesaria
+echo "Introduce el nombre de la base de datos:"
+read nombreDB
+echo "Introduce el nombre de usuario:"
+read nombreUser
+echo "Introduce la contraseña del usuario:"
+read -s pass
+
+# Crea la base de datos
+mysql -e "CREATE DATABASE $nombreDB;"
+
+# Crea el usuario y le asigna la base de datos
+mysql -e "CREATE USER '$nombreUser'@'localhost' IDENTIFIED BY '$pass';"
+mysql -e "GRANT ALL PRIVILEGES ON $nombreDB.* TO '$nombreUser'@'localhost';"
+
+# Actualiza los privilegios
+mysql -e "FLUSH PRIVILEGES;"
+
+# Notifica que se ha completado la tarea
+echo "La base de datos $nombreDB ha sido creada y el usuario $nombreUser ha sido asignado con acceso completo."

@@ -1,0 +1,15 @@
+echo "Introduce un titulo: "
+read titulo
+
+echo "Introduce una cabecera: "
+read cabecera
+
+echo "Introduce un mensaje: "
+read mensaje
+
+echo "Introduce el nombre del archivo: "
+read archivo
+
+nombreDeArchivo="$archivo.html"
+
+echo "<html> <title>$titulo</title> <header>$cabecera</header> <p>$mensaje</p> </html>">/var/www/html/"$nombreArchivo"

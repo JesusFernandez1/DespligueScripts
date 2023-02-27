@@ -1,0 +1,19 @@
+#Cogemos el archivo hosts
+archivoHost="./etc/hosts"
+
+echo "Introduce un hosts para añadir: "
+#read del host para añadir
+read nuevoHost
+
+echo "Introduce la IP: "
+#read de la IP asignada
+read nuevaIP
+
+#Buscar si el host ya existe 
+if grep -q -w "$nuevoHost" "$archivoHost" 
+then #Si existe
+        echo "Ese Host ya existe" 
+else #No existe
+        echo "$nuevaIP $nuevoHost" >> "$archivoHost" 
+        echo "Se ha añadido el host a la escucha" 
+fi
