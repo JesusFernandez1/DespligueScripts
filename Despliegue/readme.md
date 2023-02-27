@@ -175,6 +175,47 @@ echo "La base de datos $nombreDB ha sido creada y el usuario $nombreUser ha sido
 
 ### Script 4 - Se habilitará la ejecución de aplicaciones Python con el servidor web
 
+### Creamos el directorio apache en la carpeta del proyecto y el archivo de configuración myproject.conf dentro del directorio apache:
+
+```sh
+
+mkdir ~/myproject/myproject/apache
+nano ~/myproject/myproject/apache/myproject.conf
+```
+
+### Dentro del archivo myproject.conf, agregamos la configuración necesaria para tu aplicación.
+
+```sh
+
+<VirtualHost *:80>
+    ServerName yourservername.com
+    ServerAlias www.yourservername.com
+    DocumentRoot /home/yourusername/myproject/myproject
+
+    Alias /static /home/yourusername/myproject/myproject/static
+    <Directory /home/yourusername/myproject/myproject/static>
+        Require all granted
+    </Directory>
+
+    <Directory /home/yourusername/myproject/myproject/myproject>
+        <Files wsgi.py>
+            Require all granted
+        </Files>
+    </Directory>
+
+    WSGIDaemonProcess myproject python-path=/home/yourusername/myproject/myproject python-home=/home/yourusername/myproject/myprojectenv
+    WSGIProcessGroup myproject
+    WSGIScriptAlias / /home/yourusername/myproject/myproject/myproject/wsgi.py
+</VirtualHost>
+
+```
+###Guardar el archivo myproject.conf y ciérralo. Habilitar el archivo de configuración creando un enlace simbólico en el directorio sites-enabled de Apache:
+
+```sh
+sudo ln -s /home/yourusername/myproject/myproject/apache/myproject.conf /etc/apache2/sites-enabled/
+
+```
+
 ```sh
 
 #!/bin/bash
