@@ -209,7 +209,7 @@ nano ~/myproject/myproject/apache/myproject.conf
 </VirtualHost>
 
 ```
-###Guardar el archivo myproject.conf y ciérralo. Habilitar el archivo de configuración creando un enlace simbólico en el directorio sites-enabled de Apache:
+### Guardar el archivo myproject.conf y ciérralo. Habilitar el archivo de configuración creando un enlace simbólico en el directorio sites-enabled de Apache:
 
 ```sh
 sudo ln -s /home/jesus/myproject/myproject/apache/myproject.conf /etc/apache2/sites-enabled/
