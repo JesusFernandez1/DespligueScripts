@@ -58,7 +58,7 @@ sudo systemctl restart apache2
 
 ```
 
-#### [Script](https://github.com/Braeek/ProyectoDespliegue/blob/main/Proyecto/InstalacionApache.md)
+#### [Script](https://github.com/JesusFernandez1/DespligueScripts/blob/main/Despliegue/scripts/script1)
 
 ### Script 2 - Se Creacion de un subdominio en el servidor DNS con las resolución directa e inversa
 
@@ -129,8 +129,7 @@ service bind9 restart
 echo "subdominio created successfully"
 ```
 
-
-#### [Script](https://github.com/Braeek/ProyectoDespliegue/blob/main/Proyecto/ActivarModulos.md)
+#### [Script](https://github.com/JesusFernandez1/DespligueScripts/blob/main/Despliegue/scripts/script2)
 
 ### Script 3 - Se creará una base de datos además de un usuario con todos los permisos sobre dicha base de datos (ALL PRIVILEGES)
 
@@ -161,7 +160,7 @@ echo "La base de datos $nombreDB ha sido creada y el usuario $nombreUser ha sido
 
 ```
 
-#### [Script](https://github.com/Braeek/ProyectoDespliegue/blob/main/Proyecto/InstalarWordpress.md)
+#### [Script](https://github.com/JesusFernandez1/DespligueScripts/blob/main/Despliegue/scripts/script3)
 
 ### Script 4 - Se habilitará la ejecución de aplicaciones Python con el servidor web
 
@@ -233,4 +232,4 @@ sudo systemctl enable gunicorn
 sudo systemctl restart nginx
 
 ```
-#### [Script](https://github.com/Braeek/ProyectoDespliegue/blob/main/Proyecto/pythonWsgi.md)
+#### [Script](https://github.com/JesusFernandez1/DespligueScripts/blob/main/Despliegue/scripts/script4)
